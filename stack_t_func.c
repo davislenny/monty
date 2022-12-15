@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
- * add_nodeint - adds new_node at the beginning of a list
+ * add_dnodeint - adds new_node at the beginning of a list
  * @h: points to head node
  * @n: node int
  * Return: pointer to new node
  */
-stack_t *add_nodeint(stack_t **h, const int n)
+stack_t *add_dnodeint(stack_t **h, const int n)
 {
 	stack_t *node = malloc(sizeof(stack_t));
 
@@ -29,12 +29,12 @@ stack_t *add_nodeint(stack_t **h, const int n)
 }
 
 /**
- * add_nodeint_end - adds a node at the end of a list
+ * add_dnodeint_end - adds a node at the end of a list
  * @h: points to head node
  * @n: node integer
  * Return: ponter to the new node
  */
-stack_t *add_nodeint_end(stack_t **h, const int n)
+stack_t *add_dnodeint_end(stack_t **h, const int n)
 {
 	stack_t *temp = *h, *node = malloc(sizeof(stack_t));
 
@@ -60,12 +60,12 @@ stack_t *add_nodeint_end(stack_t **h, const int n)
 }
 
 /**
- * delete_nodeint_at_idx - deletes node at index of a list
+ * delete_dnodeint_at_idx - deletes node at index of a list
  * @h: points to head node
  * @idx: index to delete
  * Return: 1 success, -1 failure
  */
-int delete_nodeint_at_idx(stack_t **h, unsigned int idx)
+int delete_dnodeint_at_idx(stack_t **h, unsigned int idx)
 {
 	stack_t *temp, *node;
 	unsigned int i = 0;
@@ -100,11 +100,11 @@ int delete_nodeint_at_idx(stack_t **h, unsigned int idx)
 }
 
 /**
- * free_listint - frees a list
+ * free_dlistint - frees a list
  * @head: points to the head node
  * Return: void
  */
-void free_listint(stack_t *head)
+void free_dlistint(stack_t *head)
 {
 	stack_t *temp;
 
