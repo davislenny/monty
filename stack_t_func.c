@@ -7,7 +7,7 @@
  */
 stack_t *add_nodeint(stack_t **h, const int n)
 {
-	stack_t *node = malloc(sizeo(stack_t));
+	stack_t *node = malloc(sizeof(stack_t));
 
 	if (!node)
 		return (NULL);
