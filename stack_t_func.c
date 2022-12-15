@@ -47,7 +47,7 @@ stack_t *add_dnodeint_end(stack_t **h, const int n)
 	if (!*h)
 	{
 		node->prev = NULL;
-		*h = new;
+		*h = node;
 	}
 	else
 	{
@@ -60,12 +60,12 @@ stack_t *add_dnodeint_end(stack_t **h, const int n)
 }
 
 /**
- * delete_dnodeint_at_idx - deletes node at index of a list
+ * delete_dnodeint_at_index - deletes node at index of a list
  * @h: points to head node
  * @idx: index to delete
  * Return: 1 success, -1 failure
  */
-int delete_dnodeint_at_idx(stack_t **h, unsigned int idx)
+int delete_dnodeint_at_index(stack_t **h, unsigned int idx)
 {
 	stack_t *temp, *node;
 	unsigned int i = 0;
