@@ -4,7 +4,6 @@
  * read_file - reads a bytecode file and runs commands
  * @filename: pathname to file
  * @stack: pointer to the top of the stack
- *
  */
 void read_file(char *filename, stack_t **stack)
 {
@@ -39,6 +38,7 @@ void read_file(char *filename, stack_t **stack)
 	if (fclose(file) == -1)
 		exit(-1);
 }
+
 /**
  * get_op_func -  checks opcode and returns the correct function
  * @str: the opcode
@@ -56,8 +56,11 @@ void (*get_op_func(char *str))(stack_t **stack, unsigned int line_number)
 		{"pop", _pop},
 		{"swap", _swap},
 		{"add", _add},
-		{"sub", _sub},
 		{"nop", _nop},
+		{"sub", _sub},
+		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 
@@ -69,8 +72,6 @@ void (*get_op_func(char *str))(stack_t **stack, unsigned int line_number)
 
 	return (op[i].f);
 }
-
-#include "monty.h"
 
 /**
  * parse_line - parses a line for an opcode and arguments
