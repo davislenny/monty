@@ -17,7 +17,7 @@ void read_file(char *filename, stack_t **stack)
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
-		error_exit(stack);
+		exit(EXIT_FAILURE);
 	}
 	while (getline(&buffer, &i, file) != -1)
 	{
@@ -30,7 +30,7 @@ void read_file(char *filename, stack_t **stack)
 		if (get_op_func(line) == NULL)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_count, line);
-			error_exit(stack);
+			exit(EXIT_FAILURE);
 		}
 		get_op_func(line)(stack, line_count);
 		line_count++;
