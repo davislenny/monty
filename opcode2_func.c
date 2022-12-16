@@ -17,14 +17,14 @@ void _nop(stack_t **stack, unsigned int line_number)
  */
 void _pchar(stack_t **stack, unsigned int line_number)
 {
-	if (!*stack)
+	if (!*stack || !stack)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty", line_number);
+		fprintf(stderr, "L%u: can't pchar, stack empty", line_number);
 		error_exit(stack);
 	}
 	else if (!isprint((*stack)->n))
 	{
-		fprintf(stderr, "L%d: can't pchar, value out of range", line_number);
+		fprintf(stderr, "L%u: can't pchar, value out of range", line_number);
 		error_exit(stack);
 	}
 	printf("%c\n", (*stack)->n);
@@ -36,19 +36,17 @@ void _pchar(stack_t **stack, unsigned int line_number)
  */
 void _pstr(stack_t **stack, unsigned int line_number)
 {
-	int num;
-
 	(void)line_number;
 
-	if (!*stack)
-		putchar('\n');
-	
-	while (*stack)
+	if (!*stack || !stack)
 	{
-		num = (*stack)->n;
-		if (num == 0 || !isprint(num))
-			break;
-		putchar(num);
+		printf("L%u: can't pstr, stack empty\n", line_number);
+		error_exit(stack);
+	}
+	while ((*stack != NULL) && ((*stack)->n != 0) &&
+		(isprint((*stack)->n)))
+	{
+		putchar((*stack)->n);
 		*stack = (*stack)->next;
 	}
 	putchar('\n');
