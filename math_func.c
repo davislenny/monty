@@ -55,11 +55,11 @@ void _div(stack_t **stack, unsigned int line_number)
  * @stack: points to linked list stack_t
  * @line_number: line opcode occurs
  */
-void _mul(stack_t **stack, unsigned int line_number);
+void _mul(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack || !(*stack)->next)
 	{
-		fprinf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		error_exit(stack);
 	}
 	(*stack)->next->n *= (*stack)->n;
