@@ -16,7 +16,7 @@ void read_file(char *filename, stack_t **stack)
 
 	if (file == NULL)
 	{
-		printf("Error: Can't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		error_exit(stack);
 	}
 	while (getline(&buffer, &i, file) != -1)
@@ -29,7 +29,7 @@ void read_file(char *filename, stack_t **stack)
 		}
 		if (get_op_func(line) == NULL)
 		{
-			printf("L%d: unknown instruction %s\n", line_count, line);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_count, line);
 			error_exit(stack);
 		}
 		get_op_func(line)(stack, line_count);
@@ -49,7 +49,7 @@ void (*get_op_func(char *str))(stack_t **stack, unsigned int line_number)
 {
 	int i;
 
-	instruction_t instruct[] = {
+	instruction_t op[] = {
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
@@ -62,12 +62,12 @@ void (*get_op_func(char *str))(stack_t **stack, unsigned int line_number)
 	};
 
 	i = 0;
-	while (instruct[i].f != NULL && strcmp(instruct[i].opcode, str) != 0)
+	while (op[i].f != NULL && strcmp(op[i].opcode, str) != 0)
 	{
 		i++;
 	}
 
-	return (instruct[i].f);
+	return (op[i].f);
 }
 
 #include "monty.h"
