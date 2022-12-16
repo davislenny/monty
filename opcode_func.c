@@ -16,7 +16,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (!new)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		error_exit(stack);
 	}
 
 	arg = strtok(NULL, "\n ");
@@ -27,7 +27,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		error_exit(stack);
 	}
 
 	if (deflt == 1)
@@ -39,7 +39,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	{
 		add_dnodeint(stack, push_arg);
 	}
-
+	free(new);
 }
 /**
  * _pall - prints values on the stack from the top
@@ -87,7 +87,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		printf("L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		error_exit(stack);
 	}
 	delete_dnodeint_at_index(stack, 0);

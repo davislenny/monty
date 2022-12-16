@@ -58,7 +58,7 @@ void (*get_op_func(char *str))(stack_t **stack, unsigned int line_number)
 		{"add", _add},
 		{"sub", _sub},
 		{"nop", _nop},
-		{NULL, NULL},
+		{NULL, NULL}
 	};
 
 	i = 0;

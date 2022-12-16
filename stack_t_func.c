@@ -113,6 +113,6 @@ void free_dlistint(stack_t *head)
 		temp = head;
 		head = head->next;
 		free(temp->prev);
+		free(temp);
 	}
-	free(temp);
 }
