@@ -34,15 +34,22 @@ void _pchar(stack_t **stack, unsigned int line_number)
  * @stack: poins to linked list stack_t
  * @line_number: line opcode occurs
  */
-/*void _pstr(stack_t **stack, unsigned int line_number)
+void _pstr(stack_t **stack, unsigned int line_number)
 {
+	int num;
+
+	(void)line_number;
+
 	if (!*stack)
 		putchar('\n');
-	while ((*stack)->next)
+	
+	while (*stack)
 	{
-		printf("%c", (*stack)->n);
-		if ((*stack)->next->n == 0 || !isprint((*stack)->next->n))
+		num = (*stack)->n;
+		if (num == 0 || !isprint(num))
 			break;
+		putchar(num);
+		*stack = (*stack)->next;
 	}
-	putchat('\n');
-*/
+	putchar('\n');
+}
