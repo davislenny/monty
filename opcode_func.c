@@ -39,7 +39,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	{
 		add_dnodeint(stack, push_arg);
 	}
-/*	free(new);*/
+	free(new);
 }
 /**
  * _pall - prints values on the stack from the top
