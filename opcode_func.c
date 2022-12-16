@@ -16,7 +16,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (!new)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		error_exit(stack);
+		exit(EXIT_FAILURE);
 	}
 
 	arg = strtok(NULL, "\n ");
@@ -27,7 +27,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		error_exit(stack);
+		exit(EXIT_FAILURE);
 	}
 
 	if (deflt == 1)
