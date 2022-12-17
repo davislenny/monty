@@ -6,7 +6,6 @@
  * @av: opcode file
  * Return: 0
  */
-int deflt = 0;
 
 int main(int ac, char **av)
 {
