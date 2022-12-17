@@ -7,6 +7,7 @@
  */
 void _push(stack_t **stack, unsigned int line_number)
 {
+	int deflt = 0;
 	stack_t *new;
 	char *arg;
 	int push_arg;
