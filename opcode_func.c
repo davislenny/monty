@@ -22,9 +22,7 @@ void _push(stack_t **stack, unsigned int line_number)
 
 	arg = strtok(NULL, "\n ");
 	if (isnumber(arg) == 1 && arg != NULL)
-	{
 		push_arg = atoi(arg);
-	}
 	else
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
@@ -32,14 +30,9 @@ void _push(stack_t **stack, unsigned int line_number)
 	}
 
 	if (deflt == 1)
-	{
 		add_dnodeint_end(stack, push_arg);
-	}
-
 	if (deflt == 0)
-	{
 		add_dnodeint(stack, push_arg);
-	}
 	free(new);
 }
 /**
