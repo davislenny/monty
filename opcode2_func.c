@@ -38,14 +38,15 @@ void _pstr(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
-	if (!*stack || !stack)
+/*	if (!*stack || !stack)
 	{
 		printf("L%u: can't pstr, stack empty\n", line_number);
 		error_exit(stack);
 	}
-	while ((*stack != NULL) && ((*stack)->n != 0) &&
-		(isprint((*stack)->n)))
+*/	while (*stack != NULL)
 	{
+		if ((*stack)->n == 0 || !isprint((*stack)->n))
+			break;
 		putchar((*stack)->n);
 		*stack = (*stack)->next;
 	}
