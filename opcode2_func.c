@@ -46,6 +46,4 @@ void _pstr(stack_t **stack, unsigned int line_number)
 		*stack = (*stack)->next;
 	}
 	putchar('\n');
-	putchar ('0');
-	putchar('\n');
 }
